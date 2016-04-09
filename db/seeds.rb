@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+houn = Character.create(name: 'Houn Wyndael',
+                        player_name: 'Jaime',
+                        race: 'Human (Arkaiun)',
+                        class_name: 'Monk (Sun Soul)',
+                        alignment: :lawful_good,
+                        background: 'Hermit',
+                        experience: 330)
