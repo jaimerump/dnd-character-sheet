@@ -1,24 +1,8 @@
-# == Schema Information
-#
-# Table name: ability_score_blocks
-#
-#  id           :integer          not null, primary key
-#  character_id :integer
-#  strength     :integer          default("10"), not null
-#  dexterity    :integer          default("10"), not null
-#  constitution :integer          default("10"), not null
-#  intelligence :integer          default("10"), not null
-#  wisdom       :integer          default("10"), not null
-#  charisma     :integer          default("10"), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#
-
 require 'rails_helper'
 
-RSpec.describe AbilityScoreBlock, type: :model do
+RSpec.describe AbilityScore do
   
-  describe ".modifier_for" do 
+  describe "#modifier_for" do 
 
     it "calculates the correct modifiers" do 
       mappings = [
@@ -45,7 +29,7 @@ RSpec.describe AbilityScoreBlock, type: :model do
       ]
 
       mappings.each do |mapping|
-        expect(AbilityScoreBlock.modifier_for(mapping[:stat])).to equal(mapping[:modifier])
+        expect(AbilityScore.new(mapping[:stat]).modifier).to equal(mapping[:modifier])
       end
     end
 

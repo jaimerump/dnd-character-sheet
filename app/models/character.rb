@@ -2,16 +2,22 @@
 #
 # Table name: characters
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  player_name :string
-#  race        :string
-#  class_name  :string
-#  alignment   :integer
-#  background  :string
-#  experience  :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                 :integer          not null, primary key
+#  name               :string
+#  player_name        :string
+#  race               :string
+#  class_name         :string
+#  alignment          :integer
+#  background         :string
+#  experience         :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  strength_score     :integer
+#  dexterity_score    :integer
+#  constitution_score :integer
+#  intelligence_score :integer
+#  wisdom_score       :integer
+#  charisma_score     :integer
 #
 
 class Character < ActiveRecord::Base
@@ -38,7 +44,33 @@ class Character < ActiveRecord::Base
                          }
 
   # Relations
-  has_one :ability_scores, class_name: 'AbilityScoreBlock',
-                           foreign_key: 'character_id'
+  
+  # Class methods
+
+  # Instance methods
+
+  def strength
+    AbilityScore.new(strength_score)
+  end
+
+  def dexterity
+    AbilityScore.new(dexterity_score)
+  end
+
+  def constitution
+    AbilityScore.new(constitution_score)
+  end
+
+  def intelligence
+    AbilityScore.new(intelligence_score)
+  end
+
+  def wisdom
+    AbilityScore.new(wisdom_score)
+  end
+
+  def charisma
+    AbilityScore.new(charisma_score)
+  end
 
 end
