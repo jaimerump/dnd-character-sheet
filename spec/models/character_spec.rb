@@ -17,5 +17,37 @@
 require 'rails_helper'
 
 RSpec.describe Character, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe "#current_level_stats" do 
+
+    it "returns the highest level hash the character has attained" do
+      # Test <
+      c = build(:character, experience: Character::LEVEL_STATS.second[:experience] + 1)
+      expect(c.current_level_stats).to equal(Character::LEVEL_STATS.second)
+
+      # Test =
+      c.experience = Character::LEVEL_STATS.second[:experience]
+      expect(c.current_level_stats).to equal(Character::LEVEL_STATS.second)
+    end
+
+  end
+
+  describe "#level" do
+
+    it "returns the highest level the character has attained" do 
+      c = build(:character, experience: Character::LEVEL_STATS.second[:experience] + 1)
+      expect(c.level).to equal(2)
+    end
+
+  end
+
+  describe "#proficiency" do
+
+    it "returns the profieciency bonus of highest level the character has attained" do 
+      c = build(:character, experience: Character::LEVEL_STATS.last[:experience])
+      expect(c.proficiency).to equal(Character::LEVEL_STATS.last[:proficiency])
+    end
+
+  end  
+
 end

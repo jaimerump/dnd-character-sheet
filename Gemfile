@@ -45,3 +45,6 @@ gem 'annotate'
 # Use rspec for testing
 gem 'rspec-rails'
 
+# Generate models
+gem 'factory_girl_rails'
+

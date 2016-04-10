@@ -16,7 +16,10 @@
 
 class Character < ActiveRecord::Base
 
-    # Attributes
+  # Modules
+  include Levellable
+
+  # Attributes
   enum alignment: [:lawful_good, :lawful_neutral, :lawful_evil,
                    :neutral_good, :true_neutral, :neutral_evil,
                    :chaotic_good, :chaotic_neutral, :chaotic_evil]
