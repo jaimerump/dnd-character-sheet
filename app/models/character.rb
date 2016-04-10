@@ -37,4 +37,8 @@ class Character < ActiveRecord::Base
                            greater_than_or_equal_to: 0
                          }
 
+  # Relations
+  has_one :ability_scores, class_name: 'AbilityScoreBlock',
+                           foreign_key: 'character_id'
+
 end

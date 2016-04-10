@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: characters
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  player_name :string
+#  race        :string
+#  class_name  :string
+#  alignment   :integer
+#  background  :string
+#  experience  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 FactoryGirl.define do
 
   factory :character do
